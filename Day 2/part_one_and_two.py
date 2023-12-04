@@ -63,4 +63,4 @@ def cube(fdin):
     return id_sum, sum_minimum_cubes
 
 part_one, part_two = cube(fdin)
-print(f"Part One Result: {part_one}; Part Two Result: {part_two}")
+print(f"Part One Result: {part_one}, Part Two Result: {part_two}")

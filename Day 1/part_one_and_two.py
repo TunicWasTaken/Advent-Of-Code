@@ -96,4 +96,4 @@ def trebuchet(fdin):
 
 
 part_one, part_two = trebuchet(fdin)
-print(f"Part One Result: {part_one}; Part Two Result: {part_two}")
+print(f"Part One Result: {part_one}, Part Two Result: {part_two}")
