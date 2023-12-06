@@ -5,7 +5,6 @@ time_start = time.time()
 
 FDIN = open("input.txt")
 LINES = FDIN.read().split("\n\n")
-
 SEEDS = list(map(int, re.findall(r"\d+", LINES[0].split(":")[1])))
 SEEDS = [(SEEDS[i], SEEDS[i] + SEEDS[i+1]) for i in range(0, len(SEEDS), 2)]
 
@@ -18,7 +17,7 @@ def create_mappings():
     for index, current_mapping in enumerate(LINES[1:]):
         mappings.append([])
 
-        empty_space, *current_mapping = current_mapping.split("\n")
+        empty_char, *current_mapping = current_mapping.split("\n")
         current_maps = list((int(src), int(dest), int(delta)) for dest, src, delta in map(str.split, current_mapping))
         
         for (src_start, dest_start, delta) in current_maps:
@@ -114,7 +113,7 @@ def almanac_brute_force():
 
     for (seed_start, delta) in SEEDS:
 
-        new_seeds = list(range(seed_start, seed_start + delta))
+        new_seeds = list(range(seed_start, seed_start + delta - 1))
         locations.append(almanac(new_seeds))
 
     return min(locations)

@@ -1,5 +1,8 @@
 from collections import defaultdict
 from itertools import product
+import time
+
+time_start = time.time()
 
 fdin = open("input.txt")
 
@@ -101,3 +104,8 @@ def gear_ratios_part_two():
 
     gear_ratios = [gear[0] * gear[1] for gear in gears]
     return sum(gear_ratios)
+
+
+result = gear_ratios_part_two()
+time_end = time.time()
+print(f"Result: {result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")

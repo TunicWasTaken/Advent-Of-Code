@@ -1,4 +1,7 @@
 import re
+import time
+
+time_start = time.time()
 
 fdin = open("input.txt")
 
@@ -96,4 +99,5 @@ def trebuchet(fdin):
 
 
 part_one, part_two = trebuchet(fdin)
-print(f"Part One Result: {part_one}, Part Two Result: {part_two}")
+time_end = time.time()
+print(f"Part One Result: {part_one}, Part Two Result: {part_two}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")

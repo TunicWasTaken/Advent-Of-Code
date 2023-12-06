@@ -1,4 +1,7 @@
 import re
+import time
+
+time_start = time.time()
 
 fdin = open("input.txt")
 
@@ -6,7 +9,7 @@ MAXRED = 12
 MAXBLUE = 14
 MAXGREEN = 13
 
-def cube(fdin):
+def cube_conumdrum(fdin):
     global MAXRED, MAXBLUE, MAXGREEN
     colors = {"red" : 1, "blue": 2, "green": 3}
     sum_minimum_set_cubes = 0
@@ -46,4 +49,6 @@ def cube(fdin):
     
     return sum_minimum_set_cubes
 
-print(cube(fdin))
+result = cube_conumdrum(fdin)
+time_end = time.time()
+print(f"Result: {result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")

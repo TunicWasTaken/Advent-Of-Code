@@ -1,3 +1,7 @@
+import time
+
+time_start = time.time()
+
 fdin = open("input.txt")
 
 def trebuchet(fdin):
@@ -24,4 +28,6 @@ def trebuchet(fdin):
     return total_sum
 
 
-print(trebuchet(fdin))
+result = trebuchet(fdin)
+time_end = time.time()
+print(f"Result: {result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")

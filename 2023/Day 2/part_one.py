@@ -1,4 +1,7 @@
 import re
+import time
+
+time_start = time.time()
 
 fdin = open("input.txt")
 
@@ -51,4 +54,7 @@ def cube_conumdrum(fdin):
 
     return id_sum
 
-print(cube_conumdrum(fdin))
+
+result = cube_conumdrum(fdin)
+time_end = time.time()
+print(f"Result: {result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")

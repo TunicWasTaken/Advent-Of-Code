@@ -1,4 +1,7 @@
 from itertools import product
+import time
+
+time_start = time.time()
 
 fdin = open("input.txt")
 
@@ -85,5 +88,6 @@ def gear_ratios_part_one():
     part_numbers = extract_part_numbers()
     return sum(part_numbers)
 
-
-#print(gear_ratios_part_one())
+result = gear_ratios_part_one()
+time_end = time.time()
+print(f"Result: {result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")
