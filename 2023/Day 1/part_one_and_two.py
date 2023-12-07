@@ -98,6 +98,6 @@ def trebuchet(fdin):
     return total_sum_part_one, total_sum_part_two
 
 
-part_one, part_two = trebuchet(fdin)
+part_one_result, part_two_result = trebuchet(fdin)
 time_end = time.time()
-print(f"Part One Result: {part_one}, Part Two Result: {part_two}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")
+print(f"Part One Result: {part_one_result}, Part Two Result: {part_two_result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")
