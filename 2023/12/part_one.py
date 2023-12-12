@@ -1,9 +1,7 @@
-from itertools import product
 import functools
 import time
 
 time_start = time.time()
-
 
 LINES = open("input.txt").read().splitlines()
 
@@ -25,7 +23,7 @@ def get_springs():
 
 
 @functools.cache
-def get_n_arrangements(spring, counts_left, current_count_len):
+def get_number_of_arrangements(spring, counts_left, current_count_len):
 
     if len(spring) == 0:
         if len(counts_left) == 0 and current_count_len == 0:
@@ -45,20 +43,18 @@ def get_n_arrangements(spring, counts_left, current_count_len):
         return 0
     
 
-
     number_of_arrangements = 0
     spring_char = spring[0]
 
     if spring_char == '#' or spring_char == '?':
-        number_of_arrangements += get_n_arrangements(spring[1:], counts_left, current_count_len + 1)
+        number_of_arrangements += get_number_of_arrangements(spring[1:], counts_left, current_count_len + 1)
 
     if spring_char == '.' or spring_char == '?':
-        
         if len(counts_left) > 0 and current_count_len == counts_left[0]:
-            number_of_arrangements += get_n_arrangements(spring[1:], counts_left[1:], 0)
+            number_of_arrangements += get_number_of_arrangements(spring[1:], counts_left[1:], 0)
 
         elif current_count_len == 0:
-            number_of_arrangements += get_n_arrangements(spring[1:], counts_left, 0)
+            number_of_arrangements += get_number_of_arrangements(spring[1:], counts_left, 0)
 
     
     return number_of_arrangements
@@ -71,7 +67,7 @@ def hot_springs():
 
     for current_spring, counts in springs:
 
-        number_of_arrangements = get_n_arrangements(current_spring, counts, 0)
+        number_of_arrangements = get_number_of_arrangements(current_spring, counts, 0)
         possible_arrangements.append(number_of_arrangements)
 
     return sum(possible_arrangements)
