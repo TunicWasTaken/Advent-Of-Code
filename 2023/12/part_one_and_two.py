@@ -88,5 +88,8 @@ def hot_springs():
 
 
 part_one_result, part_two_result = hot_springs()
+cache_info_hits = get_number_of_arrangements.cache_info().hits
+cache_info_misses = get_number_of_arrangements.cache_info().misses
+cache_info_size = get_number_of_arrangements.cache_info().currsize
 time_end = time.time()
-print(f"Part One Result: {part_one_result}, Part Two Result: {part_two_result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")
+print(f"Part One Result: {part_one_result}, Part Two Result: {part_two_result}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms with {cache_info_hits} Hits, {cache_info_misses} Misses and with a Size of {cache_info_size}")
