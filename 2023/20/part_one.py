@@ -12,7 +12,6 @@ def parse_input():
     adjacents = {}
     conjunctions = {}
     flipflops = {}
-    rx_conjunction = ""
     for line in lines:
 
         module, dests = line.split(" -> ")
@@ -27,7 +26,7 @@ def parse_input():
             adjacents[label] = dests
 
         if "rx" in dests:
-            rx_conjunction = label
+            pass
 
         if module_type == '&':
             conjunctions[label] = {}
@@ -40,7 +39,7 @@ def parse_input():
             if dest in conjunctions:
                 conjunctions[dest][label] = 0
 
-    return adjacents, conjunctions, flipflops, rx_conjunction
+    return adjacents, conjunctions, flipflops
 
 
 def press():
@@ -85,19 +84,12 @@ def press():
         for dest in adjacents[label]:
             queue.append((to_send, label, dest))
 
-
-        for label, val in conjuctions[rx_conjuction].items():
-            if val and label not in rx_conjuction_presses:
-                rx_conjuction_presses[label] = presses
         
 
-
-
-adjacents, conjuctions, flipflops, rx_conjuction = parse_input()
+adjacents, conjuctions, flipflops = parse_input()
 total_low_pulses = 0
 total_high_pulses = 0
 presses = 0
-rx_conjuction_presses = {}
 
 for _ in range(1000):
     press()
