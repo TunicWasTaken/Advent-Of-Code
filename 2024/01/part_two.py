@@ -1,7 +1,7 @@
 import time
 time_start = time.time()
 
-def part_one():
+def part_two():
     data = open("input.txt")
     res, larr, rcounter = 0, [], {}
 
@@ -23,6 +23,6 @@ def part_one():
 
     return res
         
-res = part_one()
+res = part_two()
 time_end = time.time()
 print(f"Result: {res}, Finished in {(time_end - time_start) * 10 ** 3:.02f} ms")
